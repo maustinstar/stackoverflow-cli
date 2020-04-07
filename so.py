@@ -1,21 +1,11 @@
 import requests
 import sys
+from color import color
+from color import Color
 try:
     from BeautifulSoup import BeautifulSoup
 except ImportError:
     from bs4 import BeautifulSoup
-
-class style():
-    BLACK = lambda x: '\033[30m' + str(x) + '\033[0m'
-    RED = lambda x: '\033[31m' + str(x) + '\033[0m'
-    GREEN = lambda x: '\033[32m' + str(x) + '\033[0m'
-    YELLOW = lambda x: '\033[33m' + str(x) + '\033[0m'
-    BLUE = lambda x: '\033[34m' + str(x) + '\033[0m'
-    MAGENTA = lambda x: '\033[35m' + str(x) + '\033[0m'
-    CYAN = lambda x: '\033[36m' + str(x) + '\033[0m'
-    WHITE = lambda x: '\033[37m' + str(x) + '\033[0m'
-    UNDERLINE = lambda x: '\033[4m' + str(x) + '\033[0m'
-    RESET = lambda x: '\033[0m' + str(x) + '\033[0m'
 
 def numeric(str):
     for c in str:
@@ -39,12 +29,12 @@ for question in parsed_html.body.find_all('div', attrs={'class':'question-summar
     if count > 6:
         continue
     title = question.find('a', attrs={'class':'question-hyperlink'}).text
-    votes = style.YELLOW(numeric(question.find('span', attrs={'class':'vote-count-post'}).text))
+    votes = color(numeric(question.find('span', attrs={'class':'vote-count-post'}).text), Color.yellow)
     answers = numeric(question.find('div', attrs={'class':'status'}).text)
 
     if int(answers) > 0:
-        answers = style.GREEN(answers)
-        title = style.GREEN(title)
+        answers = color(answers, Color.green)
+        title = color(title, Color.green)
 
     print(votes, answers, title)
     count += 1
