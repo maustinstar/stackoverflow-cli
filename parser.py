@@ -18,7 +18,7 @@ class Parser:
         return self.html.body.find_all('div', attrs={'class':'question-summary'})
 
     def getTitle(self, summary):
-        return summary.find('a', attrs={'class':'question-hyperlink'}).text
+        return summary.find('a', attrs={'class':'question-hyperlink'}).text.strip()
 
     def getVotes(self, summary):
         return numeric(summary.find('span', attrs={'class':'vote-count-post'}).text)
