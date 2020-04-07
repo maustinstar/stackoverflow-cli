@@ -21,7 +21,13 @@ class Parser:
         return summary.find('a', attrs={'class':'question-hyperlink'}).text.strip()
 
     def getVotes(self, summary):
-        return numeric(summary.find('span', attrs={'class':'vote-count-post'}).text)
+        result = summary.find('span', attrs={'class':'vote-count-post'})
+        if result:
+            return numeric(result.text)
+        return '_'
 
     def getAnswerCount(self, summary):
-        return numeric(summary.find('div', attrs={'class':'status'}).text)
+        result = summary.find('div', attrs={'class':'status'})
+        if result:
+            return numeric(result.text)
+        return '_'
