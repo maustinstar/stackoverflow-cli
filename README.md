@@ -17,3 +17,9 @@ Or, optionally, export an alias
 `$ alias so="python3 so.py"`
 
 `$ so <your search>`
+
+## Flags
+
+`-h, --help` help
+
+`-l, --limit` limit number of search results
