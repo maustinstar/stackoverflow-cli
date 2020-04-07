@@ -17,11 +17,11 @@ class style():
     UNDERLINE = lambda x: '\033[4m' + str(x) + '\033[0m'
     RESET = lambda x: '\033[0m' + str(x) + '\033[0m'
 
-def numeric(str1):
-    for c in str1:
+def numeric(str):
+    for c in str:
         if c not in "1234567890":
-            str1 = str1.replace(c, '')
-    return str1
+            str = str.replace(c, '')
+    return str
 
 webpage = requests.get("https://stackoverflow.com/questions").text
 
