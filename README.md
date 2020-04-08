@@ -8,6 +8,8 @@ Browse Stack Overflow from your terminal. Look cool.
 
 ## Getting Started
 
+The `stackoverflow` (or `so`) command prints search results for questions on stack overflow. Just type in your search terms, and see the flags for more options. Type the question number you want to inspect, and press Enter to keep browsing.
+
 ### Installing dependencies
 
 `$ pip install beautifulsoup4 requests tox`
