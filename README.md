@@ -2,7 +2,7 @@
 
 Browse Stack Overflow from your terminal. Look cool.
 
-![screenshot of cli in action](screenshot.001.png)
+![screenshot of cli in action](images/screenshot.001.png)
 
 ## Getting Started
 
