@@ -1,5 +1,7 @@
 # Stack Overflow CLI
 
+![Python 3.7](https://github.com/maustinstar/stackoverflow-cli/workflows/Lint%20and%20Test/badge.svg)
+
 Browse Stack Overflow from your terminal. Look cool.
 
 ![screenshot of cli in action](images/screenshot.001.png)
