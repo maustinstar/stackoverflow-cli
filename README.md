@@ -4,17 +4,24 @@ Browse Stack Overflow from your terminal. Look cool.
 
 ## Getting Started
 
+### Installing dependencies
+
 1. `$ pip3 install BeautifulSoup`
 
 2. `$ pip3 install requests`
 
+### Developing
+
+Using Python 3.x, this command creates the stackoverflow package,
+making `stackoverflow` and `so` executable.
+
+`$ python setup.py develop`
+
 ## Usage
 
-`$ python3 so.py <your search>`
+`$ stackoverflow <your search>`
 
-Or, optionally, export an alias
-
-`$ alias so="python3 so.py"`
+OR shorthand:
 
 `$ so <your search>`
 
@@ -23,3 +30,5 @@ Or, optionally, export an alias
 `-h, --help` help
 
 `-l, --limit` limit number of search results
+
+`-s, --sort` sort by relevance, newest, votes, or active
