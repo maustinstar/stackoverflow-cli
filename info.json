@@ -1,4 +1,6 @@
 {
   "name": "stackoverflow",
-  "version": "0.1.3"
+  "version": "0.1.3",
+  "url": "https://github.com/maustinstar/stackoverflow-cli",
+  "bugtracker": "https://github.com/maustinstar/stackoverflow-cli/issues"
 }
