@@ -60,7 +60,7 @@ class SearchParser:
             votes = color.paint(question.votes, color.Color.yellow)
             answers = question.answer_count
 
-            if answers is not '_' and int(answers) > 0:
+            if answers != '_' and int(answers) > 0:
                 answers = color.paint(answers, color.Color.green)
                 title = color.paint(title, color.Color.green)
 

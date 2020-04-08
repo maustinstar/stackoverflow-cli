@@ -22,7 +22,7 @@ def main():
 
     while True:
         n = input(color.paint('select: ', color.Color.cyan))
-        if parser.numeric(n) is not '' and (int(n) < limit):
+        if parser.numeric(n) != '' and (int(n) < limit):
             search.open(int(n))
             search.print(args.limit)
         else:
