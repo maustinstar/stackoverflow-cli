@@ -2,6 +2,8 @@
 
 Browse Stack Overflow from your terminal. Look cool.
 
+![screenshot of cli in action](screenshot.001.png)
+
 ## Getting Started
 
 ### Installing dependencies
