@@ -8,16 +8,20 @@ Browse Stack Overflow from your terminal. Look cool.
 
 ### Installing dependencies
 
-1. `$ pip3 install BeautifulSoup`
+`$ pip3 install beautifulsoup4 requests tox`
 
-2. `$ pip3 install requests`
-
-### Developing
+### Building
 
 Using Python 3.x, this command creates the stackoverflow package,
 making `stackoverflow` and `so` executable.
 
 `$ python setup.py develop`
+
+### Testing
+
+The tox command executes the test suite.
+
+`$ tox`
 
 ## Usage
 
