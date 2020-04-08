@@ -8,7 +8,11 @@ Browse Stack Overflow from your terminal. Look cool.
 
 ### Installing dependencies
 
-`$ pip3 install beautifulsoup4 requests tox`
+`$ pip install beautifulsoup4 requests tox`
+
+Or to install all dependencies, use:
+
+`$ pip install -r requirements.txt`
 
 ### Building
 
