@@ -1,8 +1,8 @@
 import sys
-from color import *
 from parser import Parser
 from query import QueryBuilder
 import argparse
+import readline
 
 parser = argparse.ArgumentParser(description='Search Stack Overflow.')
 parser.add_argument('query', type=str, nargs='+', help='keywords to search in the archive')
@@ -11,22 +11,16 @@ parser.add_argument('-s', '--sort', type=str, help='sort by <relevance, newest, 
 
 args = parser.parse_args()
 
-max_results = 5
-if args.limit:
-    max_results = int(args.limit)
-
 parser = Parser(QueryBuilder(args.query, args.sort).webpage)
-count = 1
-for question in parser.getSummaries():
-    if count > max_results:
-        continue
-    title = parser.getTitle(question)
-    votes = color(parser.getVotes(question), Color.yellow)
-    answers = parser.getAnswerCount(question)
+parser.print(args.limit)
+limit = args.limit
+if args.limit is None:
+    limit = 5
 
-    if answers is not '_' and int(answers) > 0:
-        answers = color(answers, Color.green)
-        title = color(title, Color.green)
-
-    print(votes, answers, title)
-    count += 1
+while True:
+    n = input("select: ")
+    if int(n) is not None and (int(n) < limit):
+        parser.open(int(n))
+        parser.print(args.limit)
+    else:
+        print('Type a question number.')
