@@ -1,8 +1,8 @@
-#!/usr/bin/env python3
-
 import sys
-from parser import Parser
-from query import QueryBuilder
+from . import so_parser
+from . import query
+from . import color
+
 import argparse
 import readline
 
@@ -13,16 +13,16 @@ parser.add_argument('-s', '--sort', type=str, help='sort by <relevance, newest, 
 
 args = parser.parse_args()
 
-parser = Parser(QueryBuilder(args.query, args.sort).webpage)
+parser = so_parser.SearchParser(query.QueryBuilder(args.query, args.sort).webpage)
 parser.print(args.limit)
 limit = args.limit
 if args.limit is None:
     limit = 5
 
 while True:
-    n = input("select: ")
-    if int(n) is not None and (int(n) < limit):
+    n = input(color.paint('select:', color.Color.cyan))
+    if so_parser.numeric(n) is not '' and (int(n) < limit):
         parser.open(int(n))
         parser.print(args.limit)
     else:
-        print('Type a question number.')
+        print(color.paint('Type a question number.', color.Color.red))

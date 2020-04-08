@@ -1,6 +1,6 @@
 
 
-def color(string, color):
+def paint(string, color):
     return color + string + Color.end
 
 class Color:

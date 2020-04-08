@@ -1,5 +1,5 @@
-from color import *
-from query import QueryBuilder
+from . import color
+from . import query
 import requests
 try:
     from BeautifulSoup import BeautifulSoup
@@ -12,7 +12,7 @@ def numeric(str):
             str = str.replace(c, '')
     return str
 
-class Parser:
+class SearchParser:
 
     def __init__(self, html):
         self.html = BeautifulSoup(html, 'html.parser')
@@ -36,7 +36,7 @@ class Parser:
         return '_'
 
     def getLink(self, summary):
-        return QueryBuilder.root + summary.find('a').get('href')
+        return query.QueryBuilder.root + summary.find('a').get('href')
 
     def open(self, number):
         webpage = requests.get(self.links[number]).text
@@ -51,13 +51,13 @@ class Parser:
             if count >= n:
                 continue
             title = self.getTitle(question)
-            votes = color(self.getVotes(question), Color.yellow)
+            votes = color.paint(self.getVotes(question), color.Color.yellow)
             answers = self.getAnswerCount(question)
             self.links.append(self.getLink(question))
 
             if answers is not '_' and int(answers) > 0:
-                answers = color(answers, Color.green)
-                title = color(title, Color.green)
+                answers = color.paint(answers, color.Color.green)
+                title = color.paint(title, color.Color.green)
 
             print(str(count) + '.', votes, answers, title)
             count += 1
@@ -80,7 +80,7 @@ class QuestionParser:
         for p in post.find_all('p'):
             text = p.text
             if 'class' in p.attrs and p['class'] == 'code':
-                text = color(text, Color.blue)
+                text = color.paint(text, color.Color.blue)
             print(text)
 
     def print(self):
@@ -88,23 +88,23 @@ class QuestionParser:
         for post in self.getPosts():
             self.printPost(post)
             print('\n')
-            input('[Enter] to view answers')
+            input(color.paint('[Enter] to view answers', color.Color.cyan))
             print('\n')
 
         for post in self.getAnswers():
             self.printPost(post)
             print('\n')
-            input('[Enter] to continue')
+            input(color.paint('[Enter] to continue', color.Color.cyan))
             print('\n')
 
 
 
             # title = self.getTitle(question)
-            # votes = color(self.getVotes(question), Color.yellow)
+            # votes = color.paint(self.getVotes(question), color.Color.yellow)
             # answers = self.getAnswerCount(question)
             #
             # if answers is not '_' and int(answers) > 0:
-            #     answers = color(answers, Color.green)
-            #     title = color(title, Color.green)
+            #     answers = color.paint(answers, color.Color.green)
+            #     title = color.paint(title, color.Color.green)
             #
             # print(str(count) + '.', votes, answers, title)
