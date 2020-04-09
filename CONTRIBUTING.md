@@ -1,6 +1,6 @@
 # Contributing
 
-Please document bugs and enhancements in the [issue tracker](https://github.com/maustinstar/stackoverflow-cli/issues).
+Please document bugs and enhancements in the [issue tracker](https://github.com/maustinstar/stackoverflow-cli/issues). Label feature proposals with 'proposal' tag.
 
 ## Pull Request Process
 
